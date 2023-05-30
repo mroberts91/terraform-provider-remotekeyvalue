@@ -20,23 +20,26 @@ func dataSourceKeyValuePair() *schema.Resource {
 				Optional:    true,
 				Default:     "GET",
 				Type:        schema.TypeString,
-				Description: "HTTP method to use when retrieving a key-value pair. Defaults to GET",
+				Description: "HTTP method to use when retrieving a key-value pair. Defaults to GET.",
 			},
 			"id": {
 				Type:     schema.TypeInt,
 				Computed: true,
 			},
 			"key": {
-				Type:     schema.TypeString,
-				Computed: true,
+				Type:        schema.TypeString,
+				Description: "Key of the key value pair.",
+				Computed:    true,
 			},
 			"value": {
-				Type:     schema.TypeString,
-				Computed: true,
+				Type:        schema.TypeString,
+				Description: "Value of the key value pair.",
+				Computed:    true,
 			},
 			"sensitive": {
-				Type:     schema.TypeBool,
-				Computed: true,
+				Type:        schema.TypeBool,
+				Description: "Flag that indicated if the value should be treated as sensitive.",
+				Computed:    true,
 			},
 		},
 	}
