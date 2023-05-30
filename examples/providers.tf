@@ -1,8 +1,9 @@
 terraform {
   required_providers {
     remotekeyvalue = {
-      source  = "hashicorp.com/edu/remotekeyvalue"
-      version = "0.0.12"
+      source  = "mroberts91/remotekeyvalue"
+      # source = "local_build_path_from_make_file"
+      version = "0.1.0"
     }
   }
 }

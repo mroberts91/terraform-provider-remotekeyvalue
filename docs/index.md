@@ -14,13 +14,13 @@ description: |-
 # Supply minimum provider arguments
 provider "remotekeyvalue" {
   # REQUIRED - Base URL used in HTTP requests made to the KVP store
-  uri                  = "https://api.my-domain.com
+  uri                  = "https://api.my-domain.com"
 }
 
 # Supply all provider arguments
 provider "remotekeyvalue" {
   # REQUIRED - Base URL used in HTTP requests made to the KVP store
-  uri                  = "https://api.my-domain.com
+  uri                  = "https://api.my-domain.com"
   
   # OPTIONAL - API Key header name to send with the request
   api_key_header_name  = "API_KEY"
