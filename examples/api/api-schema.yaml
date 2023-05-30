@@ -1,0 +1,77 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Remote Key Value Pair Test API
+  description: A sample API used for the terraform-provider-remotekeyvaluepair project.
+  termsOfService: https://swagger.io/terms/
+  contact:
+    name: Michael Robertson
+    email: michael@mrobertson.dev
+    url: https://mrobertson.dev
+  license:
+    name: MIT
+    url: https://github.com/mroberts91/terraform-provider-remotekeyvalue/blob/74beebbd25cefad1a4a2b77c0b580b62e687290b/LICENSE
+servers:
+  - url: https://remotekeyvalue.local/
+paths:
+  /api/v1/{key}:
+    get:
+      summary: Get a Key Value Pair by key name
+      description: |
+        Returns a kvp looked up by the supplied key as a route parameter.
+      operationId: getKeyValuePair
+      parameters:
+        - name: key
+          in: path
+          description: Key to lookup
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Key Value Pair Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyValuePair'
+        default:
+          description: Unexpected Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    KeyValuePair:
+      required:
+        - id
+        - key
+        - value
+        - isSensitive
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Id of the Key Value Pair.
+        key:
+          type: string
+          description: Key of the Key Value Pair.
+        value:
+          type: string
+          description: Value of the Key Value Pair.
+        isSensitive:
+          type: boolean
+          description: Flag to indicate that the value of the Key Value Pair is a sensitive value.
+
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+          description: Error code
+        message:
+          type: string
+          description: Error message

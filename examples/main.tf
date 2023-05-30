@@ -6,5 +6,9 @@ provider "remotekeyvalue" {
 }
 
 data "remotekeyvalue_pair" "foo" {
-  path = "/api/v1/consumer/tz-medplans/ConnectionStrings:ContentDb/DEV"
+  path = "/api/v1/foo"
+}
+
+data "remotekeyvalue_pair" "biz" {
+  path = "/api/v1/biz"
 }

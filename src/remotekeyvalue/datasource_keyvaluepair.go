@@ -58,6 +58,7 @@ func dataSourceKeyValuePairRead(d *schema.ResourceData, meta interface{}) error 
 	rawValue := string(jsonBytes)
 	log.Printf("json response:\n%s", rawValue)
 	item, err := UnmarshalApiResponseItem(jsonBytes)
+
 	if err == nil {
 		/* Setting terraform ID tells terraform the object was created or it exists */
 		log.Printf("datasource_.go: Data resource. Returned id is '%d'\n", item.ID)
